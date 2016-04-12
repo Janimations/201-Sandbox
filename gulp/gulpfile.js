@@ -1,15 +1,22 @@
+
+//*** Dependencies that are needed ("required" from package.json):
 var gulp   = require('gulp');
 var mocha  = require('gulp-mocha');
 var jshint = require('gulp-jshint');
 
-var js_src   = ['./*.js', './js/*.js', './test/*.js'];
+var js_src   = ['gulpfile.js', 'src/*.js', './*.js', './js/*.js', './test/*.js'];
 var html_src = './*.html';
+
+
 
 gulp.task('lint', function() {
   return gulp.src(js_src)
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
+
+
+
 
 gulp.task('test', function() {
   return gulp.src('./test/test.js', {read: false})
